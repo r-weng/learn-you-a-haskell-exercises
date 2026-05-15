@@ -19,10 +19,10 @@ data Colour = Red | Orange | Yellow | Green | Blue | Indigo | Violet
  - The Colour typeclass is of type Ord
  - What is the "first" (or least) colour
  -}
-firstColour = minBound :: Colour {-chatgpt-}
+firstColour = minBound :: Colour -- gives the "smallest" colour
 
 -- List the colours in reverse order
-reverseColourOrder = reverse [minBound .. maxBound] :: [Colour {-chatgpt-}]
+reverseColourOrder = reverse [minBound .. maxBound] :: [Colour]
 
 {-
  - Mix two colours together, to produce the average value of the two.
@@ -31,4 +31,21 @@ reverseColourOrder = reverse [minBound .. maxBound] :: [Colour {-chatgpt-}]
  - For example: paintMix Green Violet = Indigo
  - Hint: Integer division can be performed with the quot function: quot 7 2 = 3
  -}
-paintMix c1 c2 = undefined {-not done-}
+paintMix c1 c2 = toColour (quot (toInt c1 + toInt c2 + 1) 2)
+
+-- helper functions defined using pattern matching, not sure how to do this without
+toInt Red = 0
+toInt Orange = 1
+toInt Yellow = 2
+toInt Green = 3
+toInt Blue = 4
+toInt Indigo = 5
+toInt Violet = 6
+
+toColour 0 = Red
+toColour 1 = Orange
+toColour 2 = Yellow
+toColour 3 = Green
+toColour 4 = Blue
+toColour 5 = Indigo
+toColour 6 = Violet

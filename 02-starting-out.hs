@@ -26,14 +26,14 @@ isPalindrome l = l == reverse l
  -
  - For example: concat [[1,2,3],[3,4,5]] returns [1,2,3,3,4,5]
  -}
-duplicate xs = concat [[x, x] | x <- xs {-chatgpt-}]
+duplicate xs = concat [[x, x] | x <- xs]
 
 {-
  - Imitate the functinality of zip
  - The function "min x y" returns the lower of values x and y
  - For example "ziplike [1,2,3] ['a', 'b', 'c', 'd']" returns [(1,'a'), (2, 'b'), (3, 'c')]
  -}
-ziplike xs ys = [(xs !! i, ys !! i) | i <- [0 .. min (length xs) (length ys) - 1 {-chatgpt-}]]
+ziplike xs ys = [(xs !! i, ys !! i) | i <- [0 .. min (length xs) (length ys) - 1]]
 
 -- Split a list l at element k into a tuple: The first part up to and including k, the second part after k
 -- For example "splitAtIndex 3 [1,1,1,2,2,2]" returns ([1,1,1],[2,2,2])
